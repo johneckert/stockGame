@@ -14,7 +14,7 @@
       <span class="value">{{amountOwned}}</span>
       </li>
       <li>
-      <button>{{ currentRoute === "stocks" ? "Sell" : "Buy" }}</button>
+      <button>{{ currentRoute === "stocks" ? "Buy" : "Sell" }}</button>
       </li>
     </ul>
   </div>

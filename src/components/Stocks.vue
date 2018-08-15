@@ -13,6 +13,7 @@
 
 <script>
 import stockItem from "./StockItem.vue";
+import { mapGetters } from "vuex";
 export default {
   name: "Stocks",
   components: {
@@ -20,40 +21,11 @@ export default {
   },
   data() {
     return {
-      stocks: [
-        {
-          name: "Stock1",
-          currentValue: 100,
-          amountOwned: 0
-        },
-        {
-          name: "Stock2",
-          currentValue: 150,
-          amountOwned: 0
-        },
-        {
-          name: "Stock3",
-          currentValue: 70,
-          amountOwned: 0
-        },
-        {
-          name: "Stock4",
-          currentValue: 200,
-          amountOwned: 0
-        },
-        {
-          name: "Stock5",
-          currentValue: 300,
-          amountOwned: 0
-        },
-        {
-          name: "Stock6",
-          currentValue: 260,
-          amountOwned: 0
-        }
-      ],
       currentRoute: "stocks"
     };
+  },
+  computed: {
+    ...mapGetters(["stocks"])
   }
 };
 </script>

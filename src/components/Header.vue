@@ -11,17 +11,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Header",
-  data() {
-    return {
-      funds: 5000
-    };
+  computed: {
+    ...mapGetters(["funds"])
   },
   methods: {
-    newDay() {
-      console.log("New Day!");
-    }
+    newDay() {}
   }
 };
 </script>

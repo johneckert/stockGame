@@ -52,6 +52,14 @@ const store = new Vuex.Store({
         return stock.amountOwned > 0;
       });
     }
+  },
+  mutations: {
+    buyStock: (state, payload) => {
+      //find stock with payload and adjust
+    },
+    sellStock: (state, payload) => {
+      //find stock with payload and adjust
+    }
   }
 });
 

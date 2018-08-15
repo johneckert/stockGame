@@ -14,16 +14,33 @@
       <span class="value">{{amountOwned}}</span>
       </li>
       <li>
-      <button>{{ currentRoute === "stocks" ? "Buy" : "Sell" }}</button>
+      <input v-model="input" type="number" >
+      <button v-if="currentRoute === 'stocks'" @click="buyStock">Buy</button>
+      <button v-else @click="sellStock">Sell</button>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "StockItem",
-  props: ["currentRoute", "stockName", "currentValue", "amountOwned"]
+  props: ["currentRoute", "stockName", "currentValue", "amountOwned"],
+  data() {
+    return {
+      input: 0
+    };
+  },
+  methods: {
+    ...mapMutations(["buyStock", "sellStock"]),
+    buyStock() {
+      this.$store.commit("buyStock", this.stockName);
+    },
+    sellStock() {
+      this.$store.commit("sellStock", this.stockName);
+    }
+  }
 };
 </script>
 
@@ -44,13 +61,17 @@ ul li {
   list-style: none;
   display: flex;
   flex-direction: column;
-  align-content: flex-start;
+  align-content: center;
   justify-content: space-around;
   padding-right: 4.5rem;
 }
 
 button {
-  margin-right: 1vw;
+  width: 4vw;
+}
+
+input {
+  width: 4vw;
 }
 
 .label {

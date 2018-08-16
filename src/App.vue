@@ -7,10 +7,15 @@
 
 <script>
 import Header from "./components/Header.vue";
+import { mapMutations } from "vuex";
 export default {
   name: "app",
   components: {
     stockgameHeader: Header
+  },
+  methods: mapMutations(["endDay"]),
+  created() {
+    this.endDay();
   }
 };
 </script>

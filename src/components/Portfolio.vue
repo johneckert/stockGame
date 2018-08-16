@@ -2,12 +2,10 @@
   <div>
     <h2>Portfolio</h2>
     <stock-item v-for="(stock, i) in ownedStocks"
-    :key="i" 
-    :current-route="currentRoute"
-    :stock-name="stock.name"
-    :current-value="stock.currentValue"
-    :amount-owned="stock.amountOwned"
-    ></stock-item>
+      :key="i" 
+      :current-route="currentRoute"
+      :stock="stock"
+      ></stock-item>
   </div>
 </template>
 

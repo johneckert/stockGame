@@ -4,7 +4,7 @@
   <nav>
     <router-link to="portfolio" tag="li">Portfolio</router-link>
     <router-link to="stocks" tag="li">Stocks</router-link>
-    <li @click="newDay">End Day</li>
+    <li @click="endDay">End Day</li>
     <li>Funds: ${{ funds }}</li>
   </nav>
 </div>  
@@ -12,14 +12,13 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { mapMutations } from "vuex";
 export default {
   name: "Header",
   computed: {
     ...mapGetters(["funds"])
   },
-  methods: {
-    newDay() {}
-  }
+  methods: mapMutations(["endDay"])
 };
 </script>
 

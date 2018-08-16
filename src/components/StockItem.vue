@@ -3,20 +3,20 @@
     <ul>
        <li>
       <span class="label">Name: </span>
-      <span class="value">{{stockName}}</span>
+      <span class="value">{{stock.name}}</span>
       </li>
       <li>
       <span class="label">Value: </span>
-      <span class="value">{{currentValue}}</span>
+      <span class="value">{{stock.value}}</span>
       </li>
       <li>
       <span class="label">Owned: </span>
-      <span class="value">{{amountOwned}}</span>
+      <span class="value">{{stock.owned}}</span>
       </li>
       <li>
       <input v-model="input" type="number" >
-      <button v-if="currentRoute === 'stocks'" @click="buyStock">Buy</button>
-      <button v-else @click="sellStock">Sell</button>
+      <button v-if="currentRoute === 'stocks'" @click="buyStock({stock: stock, amt: input})">Buy</button>
+      <button v-else @click="sellStock({stock: stock, amt: input})">Sell</button>
       </li>
     </ul>
   </div>
@@ -26,20 +26,14 @@
 import { mapMutations } from "vuex";
 export default {
   name: "StockItem",
-  props: ["currentRoute", "stockName", "currentValue", "amountOwned"],
+  props: ["currentRoute", "stock"],
   data() {
     return {
       input: 0
     };
   },
   methods: {
-    ...mapMutations(["buyStock", "sellStock"]),
-    buyStock() {
-      this.$store.commit("buyStock", this.stockName);
-    },
-    sellStock() {
-      this.$store.commit("sellStock", this.stockName);
-    }
+    ...mapMutations(["buyStock", "sellStock"])
   }
 };
 </script>

@@ -1,17 +1,4 @@
-import "@babel/polyfill";
-import Vue from "vue";
-import "./plugins/vuetify";
-import VueRouter from "vue-router";
-import Vuex from "vuex";
-import App from "./App.vue";
-import { routes } from "./routes";
-
-Vue.use(VueRouter);
-Vue.use(Vuex);
-Vue.use("vuetify");
-
-const router = new VueRouter({ routes });
-const store = new Vuex.Store({
+export const appStore = {
   state: {
     stocks: [
       {
@@ -87,11 +74,4 @@ const store = new Vuex.Store({
       });
     }
   }
-});
-
-new Vue({
-  el: "#app",
-  router,
-  store,
-  render: h => h(App)
-});
+};

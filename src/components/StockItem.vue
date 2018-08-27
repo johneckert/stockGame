@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-div {
+/* div {
   outline-style: ridge;
   outline-width: 0.1rem;
   padding: 0.1rem 0;
@@ -70,5 +70,5 @@ input {
 
 .label {
   font-size: 0.3rem;
-}
+} */
 </style>
